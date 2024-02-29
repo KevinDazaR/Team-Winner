@@ -1,0 +1,16 @@
+
+INSERT INTO `users` (`id`, `nombres`, `apellidos`, `correo`, `edad`, `genero`, `pais`, `musica`, `created_at`, `updated_at`) VALUES
+(20001, 'Kevin', 'Daza Ramírez', 'kdaza@example.net', 23, 'H', 'Colombia', 'rock', '2024-02-24 00:04:01', '2024-02-24 00:04:01');
+
+SELECT * FROM users WHERE id = 20001;
+
+/* 7. SP_ELIMINAR_CORREO -> Crear un procedimiento almacenado que me permita eliminar un usuario por correo electrónico. */
+
+CREATE PROCEDURE eliminarPorCorreo(in correoAEliminar VARCHAR(100))
+BEGIN
+    DELETE FROM users where correo = correoAEliminar;
+END;
+
+CALL eliminarPorCorreo('kdaza@example.net');
+
+DROP PROCEDURE eliminarPorCorreo;
